@@ -21,8 +21,10 @@ def detail(request, question_id):
 #### users profile####
 def profile(request, user_id):
     user = get_object_or_404(User, pk=user_id)
+    userprofile = get_object_or_404(User, pk=user_id)
+    team_members = [{'name':'Siti Mariam','id':0, 'remaining':45,'total':400}, {'name':'Kasturi Raju','id':1, 'remaining': 15,'total':350}, {'name':'Jessica Rajaratnam', 'id':2, 'remaining': 85,'total':300}, {'name':'Angel Widjojo', 'id':3, 'remaining':100,'total':250}, {'name':'Shana Salim', 'id':4, 'remaining':80,'total':530}]
 
-    return render(request, 'puzzles/profile.html', {'user': user})
+    return render(request, 'puzzles/profile.html', {'user': user, 'userprofile':userprofile, 'team_members':team_members})
 
 
 #### login / signup ####

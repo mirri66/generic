@@ -1,3 +1,30 @@
+@media only screen and (max-width: 500px) {
+  #intro{
+    color: blue;
+    border-radius: 1.5em;
+    font-size: 3em;
+    margin: auto;
+    //position: fixed; 
+    //top: 20%; 
+    //left: 10%; 
+    //width: 40%; 
+    //height: 50%;
+    padding: 1em;
+    background-color: rgba(234, 234, 234, 0.4);
+  }
+}
+#intro{
+  color: white;
+  border-radius: 1.5em;
+  font-size: 3em;
+  position: fixed; 
+  top: 20%; 
+  left: 10%; 
+  //width: 40%; 
+  //height: 50%;
+  padding: 1em;
+  background-color: rgba(234, 234, 234, 0.4);
+}
 body{
   font-family: helvetica;
 }
@@ -32,18 +59,14 @@ li a {
   min-width: 50%;
   min-height: 50%;
 }
-#intro{
-  color: white;
-  border-radius: 1.5em;
-  font-size: 3em;
-  position: fixed; 
-  top: 20%; 
-  left: 10%; 
-  width: 40%; 
-  height: 50%;
-  padding: 1em;
-  background-color: rgba(234, 234, 234, 0.4);
-}
 .navbar-brand{
   margin-top:-8;
+}
+.profilepic{
+  background-repeat: no-repeat;
+  background-position: 50%;
+  border-radius: 50%; 
+}
+.table tr td{
+  padding:2em;
 }

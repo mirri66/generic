@@ -1,4 +1,17 @@
 {% extends 'puzzles/base.html' %}
 {% block content %}
-  {{user}}
+  <h2>Welcome, {{user.first_name}}</h2>
+  <img width="150em" class='profilepic' src="/static/puzzles/images/profile_main.png">
+  {{user.first_name}} {{user.last_name}}
+  {{userprofile.rank}} 
+  <h3>Your team</h3>
+    <table class='table'>
+    {% for k in team_members %}
+      <tr>
+       <td><img width="100em" class='profilepic' src="/static/puzzles/images/profile{{ k.id }}.png"></td>
+       <td><h3>{{k.name}}</h3>
+       <br>${{k.total}}</td>
+     </tr>
+    {% endfor %}
+    </table>
 {% endblock %}
