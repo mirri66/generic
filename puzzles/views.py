@@ -8,7 +8,8 @@ from .forms import UserForm, UserProfileForm
 
 def index(request):
     latest_question_list = Question.objects.order_by('-pub_date')[:5]
-    context = {'latest_question_list': latest_question_list}
+    user = request.user
+    context = {'latest_question_list': latest_question_list, 'user':user}
     return render(request, 'puzzles/index.html', context)
 
 #### question detail ####
