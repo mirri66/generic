@@ -1,0 +1,14 @@
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="{% static "puzzles/css/style.css" %}">
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" charset="utf-8"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js" charset="utf-8"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.js" charset="utf-8"></script>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <h1>Loana</h1>
+</nav>
+<div id='base-container'>
+  {% block content %}(no content){% endblock %}
+</div>
+
