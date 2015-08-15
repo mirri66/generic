@@ -8,13 +8,13 @@
   </div>
 </div>
 {% if latest_question_list %}
-    <ul>
+    <ul style='display:none;'>
     {% for question in latest_question_list %}
         <li><a href="{% url 'detail' question.id %}">{{ question.question_text }}</a></li>
     {% endfor %}
     </ul>
 {% else %}
-    <p>Add some items</p> 
+    <!--p>Add some items</p-->
 {% endif %}
 <div id="bg">
   <img src="/static/puzzles/images/cover_photo.jpg">
