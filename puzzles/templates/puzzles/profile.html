@@ -1,17 +1,83 @@
 {% extends 'puzzles/base.html' %}
 {% block content %}
-  <h2>Welcome, {{user.first_name}}</h2>
-  <img width="150em" class='profilepic' src="/static/puzzles/images/profile_main.png">
-  {{user.first_name}} {{user.last_name}}
-  {{userprofile.rank}} 
-  <h3>Your team</h3>
+  <span style='font-size:2.7em;'>Welcome, {{user.first_name}}</span>
+  <!--img width="150em" class='profilepic' src="/static/puzzles/images/profile_main.png"-->
+  <br>
+  <table><tr>
+    <td><img style='margin-top:1.5em;margin-left:6.1em;position:absolute;' width="100em" class='profilepic' src="/static/puzzles/images/profile_main.png">
+    <canvas style='positive:absolute;' id="myChart"></canvas></td>
+    <td><span style='margin-left:-2em;'>$280 / $350 paid</span></td>
+  </tr></table>
+  <br>
+  <br>
+  <span style='font-size:2.3em;'>Your team</span>
+  <br>
+  <span style='background-color:#33CC33;width:80em;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+  <br>
+  <p><span style='font-size:1.3em;'>$710 / $1930 paid</span></p>
+  <p><span style='font-size:1.1em;'>1.1% interest, $2000 limit</span><br>
+  Next level: 0.8% interest, $2500 limit</p>
+  <br>
+  <br>
     <table class='table'>
     {% for k in team_members %}
-      <tr>
-       <td><img width="100em" class='profilepic' src="/static/puzzles/images/profile{{ k.id }}.png"></td>
-       <td><h3>{{k.name}}</h3>
+      <tr style='position:relative;'>
+       <td><img style='margin-top:1.5em;margin-left:2.3em;position:absolute;' width="100em" class='profilepic' src="/static/puzzles/images/profile{{ k.id }}.png">
+       <canvas style='margin-left:-4em;positive:absolute;' id="myChart{{k.id}}"></canvas></td>
+       <td><span style='font-size:1.4em;'>{{k.name}}</span>
        <br>${{k.total}}</td>
      </tr>
     {% endfor %}
     </table>
+  <script>
+    var data = [
+      {
+          value: 20,
+          color:"#FFFFFF",
+          highlight: "#FFFFFF",
+          label: "Unpaid"
+      },
+      {
+          value: 80,
+          color:"#33CC33",
+          highlight: "#33CC33",
+          label: "Paid"
+      },
+      ]
+    var options = [
+          {
+        animateScale: true
+      }
+    ]
+    var ctx = document.getElementById("myChart").getContext("2d");
+    var myNewChart = new Chart(ctx).Doughnut(data, options);
+  {% for k in team_members %}
+    var data = [
+      {
+          value: 100-{{ k.remaining }},
+          color:"#FFFFFF",
+          highlight: "#FFFFFF",
+          label: "Unpaid"
+      },
+      {
+          value: {{ k.remaining }},
+          {% if k.remaining <= 50 %}
+              color:"#F7464A",
+          {% else %} 
+              color:"#33CC33",
+          {% endif %} 
+          highlight: "#FFFFFF",
+          label: "Paid"
+      },
+      ]
+    var options = [
+          {
+        animateScale: true
+      }
+    ]
+    var ctx = document.getElementById("myChart{{k.id}}").getContext("2d");
+    var myNewChart = new Chart(ctx).Doughnut(data, options);
+  {% endfor %}
+  </script>
 {% endblock %}

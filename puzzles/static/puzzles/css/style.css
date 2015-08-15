@@ -25,6 +25,9 @@
   padding: 1em;
   background-color: rgba(234, 234, 234, 0.4);
 }
+html {
+    overflow-x: hidden; 
+}
 body{
   font-family: helvetica;
 }
@@ -33,10 +36,10 @@ li a {
 }
 #base-container {
   margin-top: 5em;
-  padding: 5em;
+  padding: 1em;
   margin-left: auto;
   margin-right: auto;
-  width: 80%;
+  width: 100%;
 }
 #main-container{
     background-size: 100%;
@@ -68,5 +71,5 @@ li a {
   border-radius: 50%; 
 }
 .table tr td{
-  padding:2em;
+  padding:0.2em;
 }
