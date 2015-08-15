@@ -1,4 +1,4 @@
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, get_object_or_404, render_to_response
 from django.http import HttpResponse
 from django.template import RequestContext, loader
@@ -26,8 +26,20 @@ def profile(request, user_id):
 
 
 #### login / signup ####
-def login(request):
+def login_view(request):
     return render(request, 'puzzles/login.html')
+
+def logout(request):
+    logout(request)
+    return redirect('index')
+
+def postlogin(request):
+    username = request.POST['username']
+    password = request.POST['password']
+    user = authenticate(username=username, password=password)
+    if user is not None:
+        login(request, user)
+    return render(request, 'puzzles/index.html')
 
 def signup(request):
     context = RequestContext(request)
@@ -56,7 +68,7 @@ def signup(request):
 
             # Update our variable to tell the template registration was successful.
             registered = True
-            return render(request, 'puzzles/login.html')
+            return redirect('index') 
 
         # Invalid form or forms - mistakes or something else?
         # Print problems to the terminal.

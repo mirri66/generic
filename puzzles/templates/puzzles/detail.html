@@ -1,6 +1,11 @@
+{% extends 'puzzles/base.html' %}
+{% block content %}
 <h2>{{ question.question_text }}</h2>
+
+
 <ul>
 {% for answer in question.answer_set.all %}
     <li>{{ answer.answer_text }}</li>
 {% endfor %}
 </ul>
+{% endblock %}

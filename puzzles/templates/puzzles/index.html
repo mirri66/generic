@@ -1,6 +1,10 @@
 {% extends 'puzzles/base.html' %}
 {% block content %}
 
+<div id='main-container'>
+
+
+</div>
 {% if latest_question_list %}
     <ul>
     {% for question in latest_question_list %}
@@ -10,5 +14,6 @@
 {% else %}
     <p>Nothing's available.</p>
 {% endif %}
+
 {% endblock %}
 
