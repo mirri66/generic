@@ -13,6 +13,5 @@ class QuestionAdmin(admin.ModelAdmin):
     ]
     inlines = [AnswerInline]
 
-
 admin.site.register(Question, QuestionAdmin)
 
