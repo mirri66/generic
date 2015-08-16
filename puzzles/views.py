@@ -43,6 +43,14 @@ def postlogin(request):
         login(request, user)
     return render(request, 'puzzles/index.html')
 
+#### payment ####
+def pay_view(request):
+    return render(request, 'puzzles/pay.html')
+
+def postpay(request):
+    amount = request.POST['amount']
+    return render(request, 'puzzles/thankyou.html')
+
 def signup(request):
     context = RequestContext(request)
     registered = False
