@@ -106,7 +106,7 @@ STATIC_URL = '/static/'
 
 ##### heroku ###
 # if production
-if socket.gethostname() != 'Graces-MacBook-Air.local' and socket.gethostname() != 'nekochi.local' and socket.gethostname() != 'jtlx01' and socket.gethostname() != 'dn525fln.sunet':
+if socket.gethostname() != 'Graces-MacBook-Air.local' and socket.gethostname() != 'nekochi.local' and socket.gethostname() != 'jtlx01' and socket.gethostname() != 'Macintosh.local':
 
     # Parse database configuration from $DATABASE_URL
     import dj_database_url
